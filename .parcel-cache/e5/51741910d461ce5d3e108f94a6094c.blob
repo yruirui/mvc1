@@ -1,0 +1,37 @@
+require('./app1.css');
+require('./reset.css');
+require('./app2.css');
+var _jquery = require('jquery');
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+var _jqueryDefault = _parcelHelpers.interopDefault(_jquery);
+const $number = _jqueryDefault.default('#number');
+const $add1 = _jqueryDefault.default('#add1');
+const $minus1 = _jqueryDefault.default('#minus1');
+const $mul2 = _jqueryDefault.default('#mul2');
+const $divide2 = _jqueryDefault.default('#divide2');
+const n = localStorage.getItem('n');
+$number.text(n || 100);
+$add1.on('click', () => {
+  let n = parseInt($number.text());
+  n += 1;
+  localStorage.setItem('n', n);
+  $number.text(n);
+});
+$minus1.on('click', () => {
+  let n = parseInt($number.text());
+  n -= 1;
+  localStorage.setItem('n', n);
+  $number.text(n);
+});
+$mul2.on('click', () => {
+  let n = parseInt($number.text());
+  n *= 2;
+  localStorage.setItem('n', n);
+  $number.text(n);
+});
+$divide2.on('click', () => {
+  let n = parseInt($number.text());
+  n /= 2;
+  localStorage.setItem('n', n);
+  $number.text(n);
+});

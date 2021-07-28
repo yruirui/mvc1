@@ -1,0 +1,7 @@
+require('./app1.js');
+require('./app2.js');
+require('./app3.js');
+require('./app4.js');
+require('./reset.css');
+require('./app4.css');
+require('./page.css');

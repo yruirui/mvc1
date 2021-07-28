@@ -1,0 +1,10 @@
+#app2 {
+  border: 1px solid blueviolet;
+  width: 50vw;
+  height: 50vh;
+}
+#app2 .tab-bar {
+  border: ;
+}
+#app2 . tab-content {
+}

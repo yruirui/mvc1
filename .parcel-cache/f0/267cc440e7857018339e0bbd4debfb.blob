@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+ul,
+ol {
+  list-style: none;
+}
+body {
+  overflow: scroll;
+}
+
+body > #page {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#app4 {
+  border: 1px solid blueviolet;
+  width: 48vw;
+  height: 50vh;
+}
+
+#app1 {
+  border: 1px solid red;
+  width: 48vw;
+  height: 50vh;
+}
+#app1 .output {
+}
+#app1 .actions {
+}
+
+#app2 {
+  border: 1px solid blueviolet;
+  width: 48vw;
+  height: 50vh;
+}
+#app2 .tab-bar {
+  display: flex;
+}
+#app2 .tab-bar > li.selected {
+  background: brown;
+}
+#app2 .tab-bar > li {
+  border: 3px solid black;
+  width: 45%;
+}
+#app2 .tab-content > li {
+  display: none;
+}
+#app2 .tab-content > li.active {
+  display: block;
+}
+
+#app3 {
+  border: 1px solid brown;
+  width: 48vw;
+  height: 50vh;
+}
+#app3 .square {
+  border: crimson 1px solid;
+  width: 40px;
+  height: 40px;
+  margin-top: 10vh;
+  margin-left: 10vh;
+}
+
+/*# sourceMappingURL=index.HASH_REF_4473ed2135739810cdf2cdfac07ddac1.css.map */
