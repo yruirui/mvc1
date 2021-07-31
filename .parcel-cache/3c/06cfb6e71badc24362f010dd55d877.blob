@@ -1,2 +1,0 @@
-require('./app1.css');
-require('./reset.css');

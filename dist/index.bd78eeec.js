@@ -447,21 +447,35 @@ require('./app2.js');
 require('./app3.js');
 require('./app4.js');
 require('./reset.css');
-require('./app4.css');
 require('./page.css');
 
-},{"./app1.js":"6OJP0","./app2.js":"1bsR9","./app3.js":"4knbM","./app4.js":"3XxMI","./reset.css":"5dMMQ","./app4.css":"6SFnb","./page.css":"3ldhf"}],"6OJP0":[function(require,module,exports) {
+},{"./app1.js":"6OJP0","./app2.js":"1bsR9","./app3.js":"4knbM","./app4.js":"3XxMI","./reset.css":"5dMMQ","./page.css":"3ldhf"}],"6OJP0":[function(require,module,exports) {
 var _jquery = require('jquery');
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 var _jqueryDefault = _parcelHelpers.interopDefault(_jquery);
 require('./app1.css');
+// 将需要的HTML写入页面
+const html = `
+ <div id="app1">
+        <div class='output'><span id='number'>100</span></div>
+        <div class='actions'>
+            <button id='add1'>+1</button>
+            <button id='minus1'>-1</button>
+            <button id='mul2'>*2</button>
+            <button id='divide2'>/2</button>
+        </div>
+    </div>`;
+const $element = _jqueryDefault.default(html).prependTo(_jqueryDefault.default('body>#page'));
+// 找到重要元素
 const $number = _jqueryDefault.default('#number');
 const $add1 = _jqueryDefault.default('#add1');
 const $minus1 = _jqueryDefault.default('#minus1');
 const $mul2 = _jqueryDefault.default('#mul2');
 const $divide2 = _jqueryDefault.default('#divide2');
 const n = localStorage.getItem('n');
+// 数据初始化
 $number.text(n || 100);
+// 事件绑定
 $add1.on('click', () => {
   let n = parseInt($number.text());
   n += 1;
@@ -8292,24 +8306,52 @@ var _jquery = require('jquery');
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 var _jqueryDefault = _parcelHelpers.interopDefault(_jquery);
 require('./app2.css');
+// 将需要的HTML写入页面
+const html = `<div id="app2">
+<ol class='tab-bar'><li>1</li>
+    <li>2</li>
+</ol>
+<ol class='tab-content'><li>内容1</li>
+    <li>内容2</li>
+</ol>
+</div>`;
+const $element = _jqueryDefault.default(html).prependTo(_jqueryDefault.default('body>#page'));
+// 事件触发与处理
 const $tabBar = _jqueryDefault.default('#app2 .tab-bar');
 const $tabContent = _jqueryDefault.default('#app2 .tab-content');
+const app2eq = localStorage.getItem('app2-index');
 $tabBar.on('click', 'li', e => {
+  console.log('app2');
   const $li = _jqueryDefault.default(e.currentTarget);
   const index = $li.index();
+  localStorage.setItem('app2-index', index);
   $li.addClass('selected').siblings().removeClass('selected');
   $tabContent.children().eq(index).addClass('active').siblings().removeClass('active');
 });
-$tabBar.children().eq(0).trigger('click');
+$tabBar.children().eq(app2eq).trigger('click');
 
 },{"jquery":"6Oaih","./app2.css":"4biXF","@parcel/transformer-js/lib/esmodule-helpers.js":"5oa3N"}],"4biXF":[function() {},{}],"4knbM":[function(require,module,exports) {
 require('./app3.css');
 var _jquery = require('jquery');
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 var _jqueryDefault = _parcelHelpers.interopDefault(_jquery);
+// 将需要的HTML写入页面
+const html = `<div id="app3">
+<div class="square"></div>
+</div>`;
+const $element = _jqueryDefault.default(html).prependTo(_jqueryDefault.default('body>#page'));
+// 事件触发与处理
 const $square = _jqueryDefault.default('#app3 .square');
+const app3active = localStorage.getItem("app3localKey");
+$square.toggleClass('active', app3active);
 $square.on('click', () => {
-  $square.toggleClass('active');
+  if ($square.hasClass('active')) {
+    $square.removeClass('active');
+    localStorage.setItem('app3localKey', 'no');
+  } else {
+    $square.addClass('active');
+    localStorage.setItem('app3localKey', 'yes');
+  }
 });
 
 },{"./app3.css":"2MbNN","jquery":"6Oaih","@parcel/transformer-js/lib/esmodule-helpers.js":"5oa3N"}],"2MbNN":[function() {},{}],"3XxMI":[function(require,module,exports) {
@@ -8317,6 +8359,12 @@ var _jquery = require('jquery');
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 var _jqueryDefault = _parcelHelpers.interopDefault(_jquery);
 require('./app4.css');
+// 将需要的HTML写入页面
+const html = `<div id="app4">
+<div class="circle"></div>
+</div>`;
+const $element = _jqueryDefault.default(html).appendTo(_jqueryDefault.default('body>#page'));
+// 事件触发与处理
 const $circle = _jqueryDefault.default('#app4 .circle');
 $circle.on('mouseenter', () => {
   $circle.addClass('active');
@@ -8324,6 +8372,6 @@ $circle.on('mouseenter', () => {
   $circle.removeClass('active');
 });
 
-},{"jquery":"6Oaih","./app4.css":"6SFnb","@parcel/transformer-js/lib/esmodule-helpers.js":"5oa3N"}],"6SFnb":[function() {},{}],"5dMMQ":[function() {},{}],"6SFnb":[function() {},{}],"3ldhf":[function() {},{}]},["1Ypau","30Yv7"], "30Yv7", "parcelRequiread4b")
+},{"jquery":"6Oaih","./app4.css":"6SFnb","@parcel/transformer-js/lib/esmodule-helpers.js":"5oa3N"}],"6SFnb":[function() {},{}],"5dMMQ":[function() {},{}],"3ldhf":[function() {},{}]},["1Ypau","30Yv7"], "30Yv7", "parcelRequiread4b")
 
 //# sourceMappingURL=index.bd78eeec.js.map

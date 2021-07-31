@@ -1,7 +1,0 @@
-require('./app1.css');
-require('./reset.css');
-require('./app2.css');
-require('./app3.css');
-require('./app4.css');
-require('./page.css');
-require('jquery');

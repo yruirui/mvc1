@@ -1,5 +1,0 @@
-#app3 {
-  border: 1px solid brown;
-  width: 48vw;
-  height: 50vh;
-}
